@@ -1,0 +1,75 @@
+/* =========================================
+   src/css/style.css
+   ส่วนจัดการ Animation และ Custom Styles
+========================================= */
+
+/* Smooth Rendering */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Animated Mesh Gradient Background */
+.mesh-bg {
+    background-color: #f8fafc;
+    background-image: 
+        radial-gradient(at 0% 0%, hsla(177,87%,79%,0.3) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, hsla(217,100%,88%,0.3) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, hsla(177,87%,79%,0.2) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, hsla(217,100%,88%,0.3) 0px, transparent 50%);
+}
+
+/* Floating Label Interactions */
+.floating-input {
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.floating-label {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    transition: all 0.2s ease-out;
+    pointer-events: none;
+    color: #64748b;
+    padding: 0 0.25rem;
+}
+
+/* เมื่อ Input ถูก Focus หรือมีข้อความพิมพ์อยู่ ให้ Label ลอยขึ้น */
+.floating-input:focus ~ .floating-label,
+.floating-input:not(:placeholder-shown) ~ .floating-label {
+    top: 0;
+    font-size: 0.75rem;
+    color: #0d9488;
+    background-color: white;
+    font-weight: 500;
+}
+
+/* Custom Checkbox */
+.custom-checkbox {
+    accent-color: #0d9488;
+}
+
+/* Loader Spinner */
+.spinner {
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    border-top: 2px solid #fff;
+    width: 18px;
+    height: 18px;
+    animation: spin 0.8s linear infinite;
+    display: none;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Hover Transitions */
+.btn-hover-effect {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-hover-effect:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px -5px rgba(13, 148, 136, 0.4);
+}
